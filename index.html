@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Warning: Bad HTML/CSS Ahead -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODE Phase Space Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Lodash.js"></script>
+    <script src="ODEVisualizer.js"></script>
+</head>
+<body>
+    <p id="TimeLabel">t = 0.00 (Click on graph to place initial condition point)</p>
+    <canvas id="MainCanvas"></canvas>
+    <br>
+    <div id="controlsWrapper">
+        <div class="lineInfoWrapper">
+            <div class="sliderAndLabelWrapper">
+                <input class="slider" type="range" min="0.1" step="0.005" max="9.995" value="3.162" id="deltaXSlider">
+                <label for="deltaXSlider" id="deltaXLabel">Step Size: 1.000</label>
+            </div>
+            <div class="numberInputAndLabelWrapper">
+                <input class="numberInput" type="number" value="500" id="iterationCount">
+                <label class="numberInputLabel" for="iterationCount">Iterations</label>
+            </div>  
+        </div>        
+        <div class="btnWrapper">
+            <button class="animationButton" onclick="main.stopAnimation()" id="stopAnim" name="StopAnimationBtn">Stop Animation</button>
+            <button class="animationButton" onclick="main.startAnimation()" id="startAnim" name="StopAnimationBtn">Start Animation</button>
+        </div>
+        <div class="aestheticsWrapper">
+            <div class="numberInputAndLabelWrapper">
+                <label class="numberInputLabel" for="colorPivotSlider" id="colorPivotLabel">Color Pivot</label>
+                <input class="numberInput" type="number" value="1000" id="colorPivotCount">
+                <label class="numberInputLabel" for="colorPivotEnabled">Enabled</label>
+                <input type="checkbox" class="inputCheckbox" id="colorPivotEnabled" onchange="updateColorPivot()"/>
+            </div>
+            <!-- <div class="dropdownWrapper">
+                <select name="fieldStyleDropdown" id="fieldStyleDropdown">
+                    <option value="CAP">Cap Vectors</option>
+                    <option value="NORM">Normalize Vectors</option>
+                    <option value="SCALE">Scale Vectors</option>
+                </select>
+                <div class="numberInputAndLabelWrapper">
+                    <label class="numberInputLabel" for="scaleFactor">Scale Vectors by</label>
+                    <input class="numberInput" type="number" id="scaleFactor">
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
